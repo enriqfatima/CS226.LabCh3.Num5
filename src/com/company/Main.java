@@ -2,37 +2,47 @@ package com.company;
 
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
 
-
-
     public static void main(String[] args) {
-	// Given a list of int, n, sort them using bubble sort. (429)(461)
-
-
         ArrayList<Integer> values = new ArrayList<Integer>();
-        values.add(334);
-        values.add(45);
-        values.add(1);
-        values.add(6);
-        values.add(90);
 
-        //array that will be sorted using bubble sort.
-        int arr[] = {334,67,3,1,9,10,3,6,} ;
+        // Given a list of int, n, sort them using bubble sort. (429)(461)
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.println("How many numbers are you putting into the array? : ");
+        int numOfValuesInArray = 0;
+        numOfValuesInArray = scanner.nextInt();
+
+        System.out.println("You want to input " + numOfValuesInArray +
+                " values into the array.");
+
+        System.out.println("\nEnter numbers into the array to be sorted. " +
+                "Press the enter key to stop inputting values: ");
+
+        int numInArr = 0;
+        numInArr = scanner.nextInt();
+
+        //store user input value in array
+        for (numOfValuesInArray = 0; numOfValuesInArray <= numInArr; numOfValuesInArray++) {
+            values.add(scanner.nextInt());
+        }
+
+        Integer[] arr = values.toArray(new Integer[0]);
 
         //print og array
         System.out.println("Original array from Array List is: " + values);
-        System.out.println("\nOriginal array: " + Arrays.toString(arr));
 
         bubbleSortAction(arr);
 
-        System.out.println("\nNew sorted array using bubble sort: " + Arrays.toString(arr));
+        System.out.println("\nNew sorted array using bubble sort: "+ arr );
 
         }
 
-    private static void bubbleSortAction(int [] arr) {
+    private static void bubbleSortAction(Integer[] arr) {
 
         int exchange = 0;
         int pass = 1;
